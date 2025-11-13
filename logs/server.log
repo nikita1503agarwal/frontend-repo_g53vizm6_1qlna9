@@ -3,9 +3,7 @@
 > vite
 
 
-  VITE v5.4.20  ready in 229 ms
+  VITE v5.4.20  ready in 219 ms
 
   ➜  Local:   http://localhost:3000/
   ➜  Network: http://172.20.36.124:3000/
-10:42:16 AM [vite] ✨ new dependencies optimized: @radix-ui/react-dialog, @radix-ui/react-tabs
-10:42:16 AM [vite] ✨ optimized dependencies changed. reloading
