@@ -8,6 +8,7 @@ import ParallaxImage from './components/ParallaxImage'
 import ExperimentModal from './components/ExperimentModal'
 import ScannerLight from './components/ScannerLight'
 import InteractiveMap from './components/InteractiveMap'
+import HeroBeaker from './components/HeroBeaker'
 
 const colors = {
   white: '#FFFFFF',
@@ -41,7 +42,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight text-center text-gray-900"
-        >
+       >
           Laboratorium — Where Coffee Meets Experimentation.
         </motion.h1>
         <motion.p
@@ -52,6 +53,9 @@ function Hero() {
         >
           Vintage soul, modern science.
         </motion.p>
+
+        {/* Pro-level hero animation: Berzelius glass that tilts with cursor and spins on scroll */}
+        <HeroBeaker className="mt-10 w-full max-w-[360px]" />
 
         <div className="mt-10 flex items-center justify-center">
           <ScannerButton>Access Authorized — Enter the Lab</ScannerButton>
