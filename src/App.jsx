@@ -5,6 +5,8 @@ import SteamParticles from './components/SteamParticles'
 import ScannerButton from './components/ScannerButton'
 import GlassPanel from './components/GlassPanel'
 import ParallaxImage from './components/ParallaxImage'
+import ExperimentModal from './components/ExperimentModal'
+import ScannerLight from './components/ScannerLight'
 
 const colors = {
   metal: '#8A8A8A',
@@ -135,18 +137,32 @@ const experiments = [
 ]
 
 function Menu() {
+  const [selected, setSelected] = useState(null)
+  const [open, setOpen] = useState(false)
+
+  const onCardClick = (ex) => {
+    setSelected(ex)
+    setOpen(true)
+  }
+
   return (
     <Section id="menu" className="bg-[#0b0b0b] text-white py-24">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl md:text-5xl font-semibold">The Experiments</h2>
         <p className="mt-3 text-gray-400">Each drink is presented as a lab sheet with variables and molecular diagrams.</p>
 
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {experiments.map((ex) => (
-            <ExperimentCard key={ex.id} {...ex} />
-          ))}
+        <div className="relative">
+          <ScannerLight className="absolute inset-0" />
+          <div className="relative mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {experiments.map((ex) => (
+              <button key={ex.id} onClick={() => onCardClick(ex)} className="text-left">
+                <ExperimentCard {...ex} />
+              </button>
+            ))}
+          </div>
         </div>
       </div>
+      <ExperimentModal open={open} onOpenChange={setOpen} experiment={selected} />
     </Section>
   )
 }
